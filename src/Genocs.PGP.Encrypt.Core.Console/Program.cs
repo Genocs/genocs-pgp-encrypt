@@ -4,6 +4,9 @@ using Genocs.PGP;
 
 Console.WriteLine(FiggleFonts.Standard.Render("Genocs.PGP!"));
 
+
+
+
 GenerateKeyPair();
 EncryptFile();
 DecryptFile();
@@ -18,11 +21,13 @@ DecryptFile();
 
 
 
+
+
 /// It generate the keys pairs based on the provided keys 
 static void GenerateKeyPair()
 {
     using (PGPEncryptDecrypt pgp = new PGPEncryptDecrypt())
-        pgp.GenerateKey(@".\data\pub.asc", @".\data\pri.asc", "mark@gmail.com", "Test123");
+        pgp.GenerateKey(Config.PublicKeyFilePath, Config.PrivateKeyFilePath, "mark@gmail.com", "Test123");
 
     Console.WriteLine("PGP KeyPair generated.");
 }
@@ -31,7 +36,7 @@ static void EncryptFile()
 {
     using (PGPEncryptDecrypt pgp = new PGPEncryptDecrypt())
     {
-        pgp.EncryptFile(@".\data\SampleData.txt", @".\data\SampleData.PGP", @".\data\pub.asc", true, false);
+        pgp.EncryptFile(@".\data\SampleData.txt", @".\data\SampleData.PGP", Config.PublicKeyFilePath, true, false);
         Console.WriteLine("PGP Encryption done.");
     }
 }
@@ -40,7 +45,7 @@ static void DecryptFile()
 {
     using (PGPEncryptDecrypt pgp = new PGPEncryptDecrypt())
     {
-        pgp.DecryptFile(@".\data\SampleData.PGP", @".\data\SampleData.out.txt", @".\data\pri.asc", "Test123");
+        pgp.DecryptFile(@".\data\SampleData.PGP", @".\data\SampleData.out.txt", Config.PrivateKeyFilePath, "Test123");
         Console.WriteLine("PGP Decryption done.");
     }
 }
@@ -53,7 +58,7 @@ static void Encrypt()
         {
             using (Stream output = File.OpenWrite("SampleData.PGP"))
             {
-                //pgp.CompressionAlgorithm = ChoCompressionAlgorithm.Zip;
+                //pgp.CompressionAlgorithm = GenocsCompressionAlgorithm.Zip;
                 pgp.Encrypt(input, output, "Sample_Pub.asc", true, false);
             }
         }
@@ -78,7 +83,7 @@ static void EncryptFileNSign()
 {
     using (PGPEncryptDecrypt pgp = new PGPEncryptDecrypt())
     {
-        //pgp.CompressionAlgorithm = ChoCompressionAlgorithm.Zip;
+        //pgp.CompressionAlgorithm = GenocsCompressionAlgorithm.Zip;
         pgp.EncryptFileAndSign("SampleData.txt", "SampleData.PGP", "Sample_Pub.asc", "Sample_Pri.asc", "Test123", true, false);
         Console.WriteLine("PGP Encryption done.");
     }
@@ -101,7 +106,7 @@ static void EncryptNSign()
         {
             using (Stream output = File.OpenWrite(@".\SampleData.PGP"))
             {
-                //pgp.CompressionAlgorithm = ChoCompressionAlgorithm.Zip;
+                //pgp.CompressionAlgorithm = GenocsCompressionAlgorithm.Zip;
                 pgp.EncryptAndSign(input, output, "Sample_Pub.asc", "Sample_Pri.asc", "Test123", true, false);
             }
         }
@@ -120,3 +125,9 @@ static void DecryptNVerify()
     Console.WriteLine("PGP Decryption done.");
 }
 
+public static class Config
+{
+    public static string PublicKeyFilePath = @".\data\pub.asc";
+    public static string PrivateKeyFilePath = @".\data\pri.asc";
+
+}
