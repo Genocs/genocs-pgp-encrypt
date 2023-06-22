@@ -1,0 +1,36 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<OutputType>Exe</OutputType>
+		<TargetFramework>net7.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\Genocs.PGP.Encrypt.Core\Genocs.PGP.Encrypt.Core.csproj" />
+	</ItemGroup>
+
+	<!--
+	<ItemGroup Condition="'$(Configuration)' == 'Debug'">
+		<ProjectReference Include="..\Genocs.Common\Genocs.Common.csproj" />
+	</ItemGroup>
+
+	<ItemGroup Condition="'$(Configuration)' == 'Release'">
+		<PackageReference Include="Genocs.Common" Version="5.0.0-preview.3.*" />
+	</ItemGroup>
+	-->
+
+
+	<ItemGroup>
+		<PackageReference Include="Figgle" Version="0.5.1" />
+	</ItemGroup>
+
+
+	<ItemGroup>
+	  <None Update="data\SampleData.txt">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	</ItemGroup>
+
+</Project>
