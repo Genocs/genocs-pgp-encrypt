@@ -7,19 +7,13 @@
 		<Nullable>enable</Nullable>
 	</PropertyGroup>
 
-	<ItemGroup>
+	<ItemGroup Condition="'$(Configuration)' == 'Debug'">
 		<ProjectReference Include="..\Genocs.PGP.Encrypt.Core\Genocs.PGP.Encrypt.Core.csproj" />
 	</ItemGroup>
 
-	<!--
-	<ItemGroup Condition="'$(Configuration)' == 'Debug'">
-		<ProjectReference Include="..\Genocs.Common\Genocs.Common.csproj" />
-	</ItemGroup>
-
 	<ItemGroup Condition="'$(Configuration)' == 'Release'">
-		<PackageReference Include="Genocs.Common" Version="5.0.0-preview.3.*" />
+		<PackageReference Include="Genocs.PGP.Encrypt.Core" Version="1.0.*" />
 	</ItemGroup>
-	-->
 
 
 	<ItemGroup>
