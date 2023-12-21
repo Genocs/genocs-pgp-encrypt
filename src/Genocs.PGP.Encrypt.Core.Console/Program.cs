@@ -5,8 +5,6 @@ using Genocs.PGP;
 Console.WriteLine(FiggleFonts.Standard.Render("Genocs.PGP!"));
 
 
-
-
 GenerateKeyPair();
 EncryptFile();
 DecryptFile();
@@ -18,8 +16,6 @@ DecryptFile();
 //DecryptFileNVerify();
 //EncryptFile();
 //DecryptNVerify();
-
-
 
 
 

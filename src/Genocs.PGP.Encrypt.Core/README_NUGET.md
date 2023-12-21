@@ -17,6 +17,9 @@ Please check the GitHub repository getting more info.
 
 ## Release notes
 
+### [2023-06-22] 1.0.2
+- Fix links to the repo
+
 ### [2023-06-22] 1.0.1
 - Fix target frameworks
 

@@ -5,7 +5,7 @@
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-		<Version>1.0.1</Version>
+		<Version>1.0.2</Version>
 		<MinClientVersion>5.0.0</MinClientVersion>
 		<Authors>Nocco Giovanni Emanuele</Authors>
 		<Company>Genocs</Company>
@@ -13,20 +13,20 @@
 		<Description>The library to use PGP Encrypt and Decrypt functionality into .NET Core projects.</Description>
 		<Copyright>Genocs 2023</Copyright>
 		<PackageLicenseFile>LICENSE</PackageLicenseFile>
-		<PackageProjectUrl>https://github.com/Genocs/form-recognizer</PackageProjectUrl>
-		<RepositoryUrl>https://github.com/Genocs/form-recognizer.git</RepositoryUrl>
+		<PackageProjectUrl>https://github.com/Genocs/genocs-pgp-encrypt</PackageProjectUrl>
+		<RepositoryUrl>https://github.com/Genocs/genocs-pgp-encrypt.git</RepositoryUrl>
 		<PackageIcon>icon.png</PackageIcon>
 		<RepositoryType>git</RepositoryType>
 		<PackageTags>PGP Encrypt Decrypt</PackageTags>
 		<PackageReadmeFile>README_NUGET.md</PackageReadmeFile>
-		<PackageReleaseNotes>Fix target frameworks</PackageReleaseNotes>
+		<PackageReleaseNotes>Fix links to the repo</PackageReleaseNotes>
 		<EnableNETAnalyzers>True</EnableNETAnalyzers>
 		<AnalysisLevel>latest</AnalysisLevel>
 		<GenerateDocumentationFile>True</GenerateDocumentationFile>
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="BouncyCastle.NetCore" Version="1.9.0" />
+		<PackageReference Include="BouncyCastle.NetCore" Version="2.2.1" />
 	</ItemGroup>
 
 	<ItemGroup>
